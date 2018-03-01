@@ -33,7 +33,7 @@ public class Map {
                 if ((vehicle.currentStep + vehicle.getCurrentPosition().distanceTo(ride.getStart()) +
                         ride.getStart().distanceTo(ride.getFinish())) < ride.getLatest()) {
                     //vehicle will be on time
-                    vehicle.setPosition(ride.getFinish());
+                    vehicle.setPosition(ride.getFinish().getX(), ride.getFinish().getY());
                     if ((vehicle.currentStep + vehicle.getCurrentPosition().distanceTo(ride.getStart()))
                             < ride.getEarliest()) {
                         //Vehicle will be early
