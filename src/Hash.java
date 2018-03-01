@@ -35,13 +35,14 @@ public class Hash {
 
         for (int i = 1; i <= vc.length; i++) {
             String out = vc[i - 1].ids.size() + "";
-            for (int j = 0; j < vc[i - 1].rides.size(); j++ ) {
+            for (int j = 0; j < vc[i - 1].ids.size(); j++ ) {
                 out = out + " " + vc[i - 1].ids.get(j);
             }
             writer.println(out);
         }
         writer.flush();
         writer.close();
+        Ride.reset();
     }
 
 

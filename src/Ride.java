@@ -33,6 +33,10 @@ public class Ride implements Comparable<Ride> {
         return this.finish;
     }
 
+    public static void reset() {
+        numberOfRides = 0;
+    }
+
     @Override
     public int compareTo(Ride ride) {
         return this.latest.compareTo(ride.latest);
