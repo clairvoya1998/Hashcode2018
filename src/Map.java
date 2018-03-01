@@ -27,13 +27,18 @@ public class Map {
             while (needsCar) {
                 Vehicle vehicle = vehicles[i];
 
-                if (canMakeTheRide) {
-                    //Set new location to vehicle.
-                    if (carwillbeearly) {
-                        vehicle.currentStep = ride.earliest + duration;
+                if ((vehicle.currentStep + vehicle.currentPosition.distanceTo(ride.start) +
+                        ride.start.distanceTo(ride.finish)) < ride.latest) {
+                    //vehicle will be on time
+                    vehicle.currentPosition = ride.finish;
+                    if ((vehicle.currentStep + vehicle.currentPosition.distanceTo(ride.start))
+                            < ride.earliest) {
+                        //Vehicle will be early
+                        vehicle.currentStep = ride.earliest + ride.start.distanceTo(ride.finish);
                     }
                     else
-                        vehicle.currentStep += timeToStartLocation + duration;
+                        vehicle.currentStep += vehicle.currentPosition.distanceTo(ride.start) +
+                                ride.start.distanceTo(ride.finish);
                     needsCar = false;
                     vehicle.rides.add(ride);
                     rides.remove(0);
