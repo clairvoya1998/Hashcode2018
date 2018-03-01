@@ -30,18 +30,18 @@ public class Map {
             int i = 0;
             while (needsCar) {
                 Vehicle vehicle = vehicles[i];
-                if ((vehicle.currentStep + vehicle.currentPosition.distanceTo(ride.start) +
-                        ride.start.distanceTo(ride.finish)) < ride.latest) {
+                if ((vehicle.currentStep + vehicle.getCurrentPosition().distanceTo(ride.getStart()) +
+                        ride.getStart().distanceTo(ride.getFinish())) < ride.getLatest()) {
                     //vehicle will be on time
-                    vehicle.currentPosition = ride.finish;
-                    if ((vehicle.currentStep + vehicle.currentPosition.distanceTo(ride.start))
-                            < ride.earliest) {
+                    vehicle.setPosition(ride.getFinish());
+                    if ((vehicle.currentStep + vehicle.getCurrentPosition().distanceTo(ride.getStart()))
+                            < ride.getEarliest()) {
                         //Vehicle will be early
-                        vehicle.currentStep = ride.earliest + ride.start.distanceTo(ride.finish);
+                        vehicle.currentStep = ride.getEarliest() + ride.getStart().distanceTo(ride.getFinish());
                     }
                     else
-                        vehicle.currentStep += vehicle.currentPosition.distanceTo(ride.start) +
-                                ride.start.distanceTo(ride.finish);
+                        vehicle.currentStep += vehicle.getCurrentPosition().distanceTo(ride.getStart()) +
+                                ride.getStart().distanceTo(ride.getFinish());
                     needsCar = false;
                     vehicle.rides.add(ride);
                     rides.remove(0);
