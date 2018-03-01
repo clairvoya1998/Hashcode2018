@@ -16,4 +16,37 @@ public class Map {
     public void setRides(ArrayList<Ride> rides) {
         this.rides = rides;
     }
+
+    void run() {
+        while (!rides.isEmpty()) {
+            Ride ride = rides.get(0);
+            //Sort vehicles based on position
+
+            boolean needsCar = true;
+            int i = 0;
+            while (needsCar) {
+                Vehicle vehicle = vehicles[i];
+
+                if (canMakeTheRide) {
+                    //Set new location to vehicle.
+                    if (carwillbeearly) {
+                        vehicle.currentStep = ride.earliest + duration;
+                    }
+                    else
+                        vehicle.currentStep += timeToStartLocation + duration;
+                    needsCar = false;
+                    vehicle.rides.add(ride);
+                    rides.remove(0);
+                }
+                else {
+                    if (i >= rides.size()) {
+                        //No car that can make the trip was found, break from loop and abandon ride
+                        rides.remove(0);
+                        break;
+                    }
+                    i++;
+                }
+            }
+
+        }
 }
