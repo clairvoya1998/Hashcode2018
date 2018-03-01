@@ -39,6 +39,8 @@ public class Ride implements Comparable<Ride> {
 
     @Override
     public int compareTo(Ride ride) {
-        return this.latest.compareTo(ride.latest);
+        Integer time1 = this.latest - this.earliest;
+        Integer time2 = ride.latest - ride.earliest;
+        return time1.compareTo(time2);
     }
 }

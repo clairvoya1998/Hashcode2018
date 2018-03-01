@@ -27,20 +27,7 @@ public class Map {
             Ride ride = rides.get(0);
 
             //Sort vehicles based on position
-            Arrays.sort(vehicles, new Comparator<Vehicle>() {
-                @Override
-                public int compare(Vehicle o1, Vehicle o2) {
-                    if (o1.getCurrentPosition().distanceTo(ride.getStart()) <
-                            o2.getCurrentPosition().distanceTo(ride.getStart())) {
-                        return  -1;
-                    }
-                    if (o1.getCurrentPosition().distanceTo(ride.getStart()) >
-                            o2.getCurrentPosition().distanceTo(ride.getStart())) {
-                        return 1;
-                    }
-                    return 0;
-                }
-            });
+            Arrays.sort(vehicles, Comparator.comparingInt(o -> o.getCurrentPosition().distanceTo(ride.getStart())));
 
             boolean needsCar = true;
             int i = 0;

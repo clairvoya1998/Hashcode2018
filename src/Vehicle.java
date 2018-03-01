@@ -5,7 +5,6 @@ public class Vehicle {
 
     ArrayList<Ride> rides = new ArrayList<>();
     ArrayList<Integer> ids = new ArrayList<>();
-    Intersection location;
 
     int currentStep;
 
