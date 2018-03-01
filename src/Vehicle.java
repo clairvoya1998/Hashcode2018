@@ -3,13 +3,6 @@ import java.util.ArrayList;
 public class Vehicle {
     private Intersection currentPosition;
     ArrayList<Ride> rides;
-    Intersection location;
-    int currentStep;
-
-
-
-    ArrayList<Ride> rides;
-    Intersection location;
     int currentStep;
 
     Vehicle() {
