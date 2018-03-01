@@ -1,14 +1,17 @@
 import java.util.ArrayList;
 
 public class Vehicle {
-    Intersection currentPosition;
-
-<<<<<<< HEAD
+    private Intersection currentPosition;
     ArrayList<Ride> rides;
     Intersection location;
     int currentStep;
 
-=======
+
+
+    ArrayList<Ride> rides;
+    Intersection location;
+    int currentStep;
+
     Vehicle() {
         this.currentPosition = new Intersection(0, 0);
     }
@@ -17,5 +20,8 @@ public class Vehicle {
         this.currentPosition.setX(x);
         this.currentPosition.setY(y);
     }
->>>>>>> b619bd1c49ccd4da2da570df2a4c0acc757419c1
+
+    public Intersection getCurrentPosition() {
+        return this.currentPosition;
+    }
 }

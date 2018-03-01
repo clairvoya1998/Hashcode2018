@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Map {
     Vehicle[] vehicles;
@@ -18,6 +20,8 @@ public class Map {
     }
 
     void run() {
+        // sorted rides
+        Collections.sort(this.rides);
         while (!rides.isEmpty()) {
             Ride ride = rides.get(0);
             //Sort vehicles based on position
@@ -26,7 +30,6 @@ public class Map {
             int i = 0;
             while (needsCar) {
                 Vehicle vehicle = vehicles[i];
-
                 if ((vehicle.currentStep + vehicle.currentPosition.distanceTo(ride.start) +
                         ride.start.distanceTo(ride.finish)) < ride.latest) {
                     //vehicle will be on time

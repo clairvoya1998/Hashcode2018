@@ -1,9 +1,9 @@
-public class Ride {
+public class Ride implements Comparable<Ride> {
 
-    Intersection start, finish;
-    int earliest, latest;
+    private Intersection start, finish;
+    private Integer earliest, latest;
     private static int numberOfRides = 0;
-    int id;
+    private int id;
 
     Ride(Intersection start, Intersection finish, int earliest, int latest) {
         this.id = numberOfRides++;
@@ -11,5 +11,30 @@ public class Ride {
         this.finish = finish;
         this.earliest = earliest;
         this.latest = latest;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public int getEarliest() {
+        return this.earliest;
+    }
+
+    public int getLatest() {
+        return this.latest;
+    }
+
+    public Intersection getStart() {
+        return this.start;
+    }
+
+    public Intersection getFinish() {
+        return this.finish;
+    }
+
+    @Override
+    public int compareTo(Ride ride) {
+        return this.latest.compareTo(ride.latest);
     }
 }
