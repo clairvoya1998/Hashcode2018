@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 public class Map {
     Vehicle[] vehicles;
@@ -24,7 +22,22 @@ public class Map {
         Collections.sort(this.rides);
         while (!rides.isEmpty()) {
             Ride ride = rides.get(0);
+
             //Sort vehicles based on position
+            Arrays.sort(vehicles, new Comparator<Vehicle>() {
+                @Override
+                public int compare(Vehicle o1, Vehicle o2) {
+                    if (o1.getCurrentPosition().distanceTo(ride.getStart()) <
+                            o2.getCurrentPosition().distanceTo(ride.getStart())) {
+                        return  -1;
+                    }
+                    if (o1.getCurrentPosition().distanceTo(ride.getStart()) >
+                            o2.getCurrentPosition().distanceTo(ride.getStart())) {
+                        return 1;
+                    }
+                    return 0;
+                }
+            });
 
             boolean needsCar = true;
             int i = 0;
