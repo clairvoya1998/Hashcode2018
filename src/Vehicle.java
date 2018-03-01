@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class Vehicle {
     private Intersection currentPosition;
-<<<<<<< HEAD
-    ArrayList<Ride> rides;
-=======
+
     ArrayList<Ride> rides = new ArrayList<>();
     ArrayList<Integer> ids = new ArrayList<>();
     Intersection location;
->>>>>>> 387a73d612a7cd284945ecc382b5fc19ef406767
+
     int currentStep;
 
     Vehicle() {

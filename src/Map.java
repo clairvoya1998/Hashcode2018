@@ -64,7 +64,7 @@ public class Map {
                     rides.remove(0);
                 }
                 else {
-                    if (i >= rides.size()) {
+                    if (i >= vehicles.length -1) {
                         //No car that can make the trip was found, break from loop and abandon ride
                         rides.remove(0);
                         break;
