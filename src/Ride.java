@@ -43,7 +43,8 @@ public class Ride implements Comparable<Ride> {
         if (score == 0) {
             Integer d1 = this.start.distanceTo(this.finish);
             Integer d2 = ride.start.distanceTo(ride.finish);
-            return d1.compareTo(d2);
+            score = d1.compareTo(d2);
         }
+        return score;
     }
 }
