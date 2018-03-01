@@ -10,4 +10,7 @@ public class Map {
         this.rides = new Ride[numberOfRides];
         this.steps = numberOfSteps;
     }
+
+    Map() {
+    }
 }
