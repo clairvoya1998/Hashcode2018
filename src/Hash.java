@@ -11,6 +11,7 @@ public class Hash {
             int[] firstline = rd.scanfirst(sc);
             Map mp = new Map(firstline[0], firstline[1], firstline[2], firstline[3], firstline[4], firstline[5]);
             ArrayList<Ride> rides = rd.scanRide(sc);
+            mp.setRides(rides);
         } catch (FileNotFoundException e) {
             e.getMessage();
         }
