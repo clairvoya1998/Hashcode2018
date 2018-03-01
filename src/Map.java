@@ -13,6 +13,9 @@ public class Map {
         this.vehicles = new Vehicle[numberOfVehicles];
         this.NoOfRides = numberOfRides;
         this.steps = numberOfSteps;
+        for (int i = 0; i < numberOfVehicles; i++) {
+            this.vehicles[i] = new Vehicle();
+        }
     }
 
     public void setRides(ArrayList<Ride> rides) {
@@ -44,6 +47,7 @@ public class Map {
                                 ride.getStart().distanceTo(ride.getFinish());
                     needsCar = false;
                     vehicle.rides.add(ride);
+                    vehicle.ids.add(ride.getId());
                     rides.remove(0);
                 }
                 else {

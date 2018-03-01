@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Vehicle {
     private Intersection currentPosition;
-    ArrayList<Ride> rides;
+    ArrayList<Ride> rides = new ArrayList<>();
+    ArrayList<Integer> ids = new ArrayList<>();
     Intersection location;
     int currentStep;
 
