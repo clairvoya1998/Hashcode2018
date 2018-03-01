@@ -1,21 +1,25 @@
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.List;
+=======
+>>>>>>> b619bd1c49ccd4da2da570df2a4c0acc757419c1
 
 public class Map {
     Vehicle[] vehicles;
-    Ride[] rides;
-    int bonus, steps;
+    ArrayList<Ride> rides;
+    int bonus, steps, NoOfRides;
     int[][] map;
     Map(int numberOfRows, int numberOfCols, int numberOfVehicles, int numberOfRides, int numberOfBonus, int numberOfSteps) {
         this.map = new int[numberOfRows][numberOfCols];
         this.bonus = numberOfBonus;
         this.vehicles = new Vehicle[numberOfVehicles];
-        this.rides = new Ride[numberOfRides];
+        this.NoOfRides = numberOfRides;
         this.steps = numberOfSteps;
     }
 
-    Map() {
+    public void setRides(ArrayList<Ride> rides) {
+        this.rides = rides;
     }
 
     void run() {
