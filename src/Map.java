@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Map {
     Vehicle[] vehicles;
@@ -18,9 +20,12 @@ public class Map {
     }
 
     void run() {
+        // sorted rides
+        Collections.sort(this.rides);
         while (!rides.isEmpty()) {
             Ride ride = rides.get(0);
             //Sort vehicles based on position
+
 
             boolean needsCar = true;
             int i = 0;
@@ -31,14 +36,12 @@ public class Map {
                     //Set new location to vehicle.
                     if (carwillbeearly) {
                         vehicle.currentStep = ride.earliest + duration;
-                    }
-                    else
+                    } else
                         vehicle.currentStep += timeToStartLocation + duration;
                     needsCar = false;
                     vehicle.rides.add(ride);
                     rides.remove(0);
-                }
-                else {
+                } else {
                     if (i >= rides.size()) {
                         //No car that can make the trip was found, break from loop and abandon ride
                         rides.remove(0);
@@ -49,4 +52,5 @@ public class Map {
             }
 
         }
+    }
 }
