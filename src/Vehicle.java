@@ -7,6 +7,11 @@ public class Vehicle {
     int currentStep;
 
 
+
+    ArrayList<Ride> rides;
+    Intersection location;
+    int currentStep;
+
     Vehicle() {
         this.currentPosition = new Intersection(0, 0);
     }
